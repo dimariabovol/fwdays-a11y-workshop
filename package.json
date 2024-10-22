@@ -1,0 +1,13 @@
+{
+  "name": "fwdays-a11y",
+  "version": "1.0.0",
+  "description": "Web-application for Fwdays A11Y workshop",
+  "scripts": {
+    "start": "npx browser-sync start --server --files \"index.html, src/css\""
+  },
+  "author": "Dima Riabovol",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "3.0.3"
+  }
+}
