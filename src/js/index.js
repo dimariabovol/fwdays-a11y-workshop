@@ -1,1 +1,1 @@
-console.log('Hello, Fwdays!');
+'use strict';

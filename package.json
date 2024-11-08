@@ -2,12 +2,16 @@
   "name": "fwdays-a11y",
   "version": "1.0.0",
   "description": "Web-application for Fwdays A11Y workshop",
+  "type": "module",
   "scripts": {
-    "start": "npx browser-sync start --server --files \"index.html, src/css\""
+    "start": "npx browser-sync start --server --files \"index.html, src\""
   },
   "author": "Dima Riabovol",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "3.0.3"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.3"
   }
 }
