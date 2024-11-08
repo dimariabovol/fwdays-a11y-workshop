@@ -1,11 +1,13 @@
 'use strict';
 
-import navbar from './components/navbar.js';
 import modal from './components/modal.js';
+import navbar from './components/navbar.js';
+import products from './components/products.js';
 
 const initApp = () => {
-  navbar();
   modal();
+  navbar();
+  products();
 };
 
 initApp();
