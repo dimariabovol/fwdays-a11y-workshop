@@ -1,3 +1,7 @@
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 @import './layout/header.css';
+@import './layout/hero-section.css';
+
+@import './components/icon.css';
+@import './components/modal.css';

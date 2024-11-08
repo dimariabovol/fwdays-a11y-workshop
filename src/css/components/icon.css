@@ -1,0 +1,11 @@
+.icon {
+  display: inline-block;
+  vertical-align: -0.125rem;
+  width: 1rem;
+  height: 1rem;
+  fill: #fff;
+
+  &.icon-dark {
+    fill: #212529;
+  }
+}
