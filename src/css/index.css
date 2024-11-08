@@ -1,7 +1,10 @@
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+@import './core/base.css';
+
 @import './layout/header.css';
 @import './layout/hero-section.css';
+@import './layout/section.css';
 
 @import './components/icon.css';
 @import './components/modal.css';
