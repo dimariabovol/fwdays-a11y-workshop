@@ -1,0 +1,41 @@
+.header {
+  padding: 1rem 0;
+  background-color: #f5f5f5;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.header-search {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 991px) {
+    flex-basis: 100%;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.navbar {
+  padding: 0;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
