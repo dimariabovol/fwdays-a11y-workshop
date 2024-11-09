@@ -10,9 +10,12 @@ const products = async () => {
           <img src="${product.image}" class="card-img product-img" alt="" />
           <div class="card-body">
             <h3 class="card-title">${product.title.substring(0, 16)}...</h3>
-            <p class="card-text">${product.description.substring(0, 80)}...</p>
+            <p class="card-text">${product.description.substring(0, 90)}...</p>
             <p class="card-text">${product.price}$</p>
-            <button type="button" class="btn btn-primary">View Details</button>
+            <button type="button" class="btn btn-primary">
+              View Details
+              <span class="visually-hidden">for ${product.title}</span>
+            </button>
           </div>
         </article>
       </li>`;
