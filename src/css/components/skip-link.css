@@ -1,0 +1,9 @@
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  transform: translateY(-4rem);
+
+  &:focus {
+    transform: translateY(0.5rem);
+  }
+}

@@ -1,6 +1,6 @@
 const products = async () => {
   const productList = document.querySelector('.product-list');
-  const response = await fetch('https://fakestoreapi.com/products?limit=8');
+  const response = await fetch('https://fakestoreapi.com/products?limit=4');
   const products = await response.json();
 
   const renderProductItem = product => {
