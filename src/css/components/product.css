@@ -9,3 +9,8 @@
   height: 12rem;
   object-fit: contain;
 }
+
+.show-more {
+  display: block;
+  margin: 2rem auto 0;
+}

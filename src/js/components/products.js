@@ -1,6 +1,10 @@
 const products = async () => {
+  let isShowMore = false;
+
   const productList = document.querySelector('.product-list');
-  const response = await fetch('https://fakestoreapi.com/products?limit=4');
+  const showMore = document.querySelector('.show-more');
+
+  const response = await fetch('https://fakestoreapi.com/products?limit=8');
   const products = await response.json();
 
   const renderProductItem = product => {
@@ -13,17 +17,25 @@ const products = async () => {
             <p class="card-text">${product.description.substring(0, 90)}...</p>
             <p class="card-text">${product.price}$</p>
             <button type="button" class="btn btn-primary">
-              View Details
-              <span class="visually-hidden">for ${product.title}</span>
+              Add to cart <span class="visually-hidden">${product.title}</span>
             </button>
           </div>
         </article>
       </li>`;
   };
 
-  products.forEach(product =>
-    productList.insertAdjacentHTML('beforeend', renderProductItem(product))
-  );
+  const getProducts = () => {
+    let visibleProducts = isShowMore ? products : products.slice(0, 4);
+    showMore.textContent = isShowMore ? 'Show less' : 'Show more';
+    productList.innerHTML = visibleProducts.map(renderProductItem).join('');
+  };
+
+  showMore.addEventListener('click', () => {
+    isShowMore = !isShowMore;
+    getProducts();
+  });
+
+  getProducts();
 };
 
 export default products;
