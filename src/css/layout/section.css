@@ -1,5 +1,9 @@
 .section {
   padding: 4rem 0;
+
+  &.section-accent {
+    background-color: #f4f4f4;
+  }
 }
 
 .section-title {
