@@ -1,10 +1,9 @@
 const orderForm = () => {
-  const formSubmit = document.querySelector('.order-form');
+  const form = document.querySelector('.order-form');
+  const formContent = document.querySelector('.order-form-content');
   const termsCheckbox = document.querySelector('.form-check-input');
 
   const validateTermsCheckbox = () => {
-    console.log(termsCheckbox.validity.valid);
-
     if (!termsCheckbox.validity.valid) {
       termsCheckbox.classList.add('is-invalid');
       termsCheckbox.setAttribute('aria-invalid', 'true');
@@ -14,12 +13,23 @@ const orderForm = () => {
     }
   };
 
+  const showNotification = () => {
+    const alert = document.getElementById('alert');
+    const clone = alert.content.cloneNode(true);
+
+    formContent.prepend(clone);
+  };
+
   termsCheckbox.addEventListener('change', validateTermsCheckbox);
 
-  formSubmit.addEventListener('submit', event => {
+  form.addEventListener('submit', event => {
     event.preventDefault();
 
     validateTermsCheckbox();
+
+    if (termsCheckbox.validity.valid) {
+      showNotification();
+    }
   });
 };
 
