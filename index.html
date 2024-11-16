@@ -80,7 +80,7 @@
         <div class="container-xxl">
           <h2 class="section-title visually-hidden">Featured Products</h2>
           <ul class="product-list"></ul>
-          <button class="btn btn-light btn-lg show-more">
+          <button class="btn btn-outline-dark show-more">
             Show more <span class="visually-hidden">featured products</span>
           </button>
         </div>
@@ -90,7 +90,7 @@
       <section class="section section-accent">
         <div class="container-xxl">
           <h2 class="section-title">FAQ</h2>
-          <div class="accordion">
+          <div class="accordion w-75 mx-auto">
             <div class="accordion-item">
               <h3 class="accordion-header" id="heading-1">
                 <button
@@ -227,38 +227,63 @@
       aria-modal="true"
       aria-labelledby="modal-title"
       tabindex="-1"
-      class="modal fade"
+      class="modal"
     >
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <form autocomplete="off" novalidate class="modal-content order-form">
           <div class="modal-header">
-            <h2 id="modal-title" class="modal-title">Modal title</h2>
+            <h2 id="modal-title" class="modal-title">Your order</h2>
             <button
               aria-label="Close"
               type="button"
-              class="btn btn-light ms-auto modal-close"
-            >
-              <svg
-                aria-hidden="true"
-                class="icon icon-dark"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                />
-              </svg>
-            </button>
+              class="btn-close modal-close"
+            ></button>
           </div>
           <div class="modal-body">
-            <p>Modal body text goes here.</p>
+            <div class="mb-3">
+              <label
+                aria-describedby="fullname-info"
+                for="fullname"
+                class="form-label"
+              >
+                Full name
+              </label>
+              <input type="name" class="form-control" id="fullname" />
+              <div id="fullname-info" class="form-text">
+                We won't share phone with anyone else
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="tel" class="form-label">Phone</label>
+              <input type="tel" class="form-control" id="tel" />
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" />
+            </div>
+            <div class="form-check">
+              <input
+                aria-describedby="terms-error"
+                class="form-check-input"
+                type="checkbox"
+                id="check"
+                required
+              />
+              <label class="form-check-label" for="check">
+                I agree with Terms and Conditions
+              </label>
+              <div id="terms-error" class="invalid-feedback">
+                You must agree before buying
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary modal-close">
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Buy</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
 

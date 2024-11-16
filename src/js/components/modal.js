@@ -1,5 +1,5 @@
 const modal = () => {
-  // TODO: keyboard handling && focus trap
+  // TODO: keyboard handling, focus trap, body scroll lock
 
   let isOpen = false;
 
