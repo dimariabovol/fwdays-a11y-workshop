@@ -1,5 +1,6 @@
 const products = async () => {
   let isShowMore = false;
+  let cartCount = 0;
 
   const productList = document.querySelector('.product-list');
   const showMore = document.querySelector('.show-more');
@@ -16,7 +17,7 @@ const products = async () => {
             <h3 class="card-title">${product.title.substring(0, 16)}...</h3>
             <p class="card-text">${product.description.substring(0, 90)}...</p>
             <p class="card-text">${product.price}$</p>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary cart-trigger">
               Add to cart <span class="visually-hidden">${product.title}</span>
             </button>
           </div>
@@ -24,10 +25,23 @@ const products = async () => {
       </li>`;
   };
 
+  const addToCart = () => {
+    const cart = document.querySelector('.cart-count');
+    const cartTriggers = document.querySelectorAll('.cart-trigger');
+
+    cartTriggers.forEach(trigger =>
+      trigger.addEventListener('click', () => {
+        cart.textContent = ++cartCount;
+      })
+    );
+  };
+
   const getProducts = () => {
     let visibleProducts = isShowMore ? products : products.slice(0, 4);
     showMore.textContent = isShowMore ? 'Show less' : 'Show more';
     productList.innerHTML = visibleProducts.map(renderProductItem).join('');
+
+    addToCart();
   };
 
   showMore.addEventListener('click', () => {
