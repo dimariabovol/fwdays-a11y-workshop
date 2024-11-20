@@ -40,3 +40,21 @@
 .navbar-collapse {
   justify-content: center;
 }
+
+.header-cart {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.5rem;
+  min-width: 1.5rem;
+  padding: 0.15rem 0.25rem;
+  font-size: 0.75rem;
+  color: #fff;
+  text-align: center;
+  background-color: #ff0000;
+  border: 0.0625rem solid currentColor;
+  border-radius: 50%;
+}

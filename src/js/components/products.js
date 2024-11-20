@@ -26,7 +26,7 @@ const products = async () => {
   };
 
   const addToCart = () => {
-    const cart = document.querySelector('.cart-count');
+    const cart = document.querySelector('.cart-index');
     const cartTriggers = document.querySelectorAll('.cart-trigger');
 
     cartTriggers.forEach(trigger =>
