@@ -13,7 +13,7 @@ const orderForm = () => {
     }
   };
 
-  const showNotification = () => {
+  const showRequiredAlert = () => {
     const alert = document.getElementById('alert');
     const clone = alert.content.cloneNode(true);
 
@@ -27,8 +27,8 @@ const orderForm = () => {
 
     validateTermsCheckbox();
 
-    if (termsCheckbox.validity.valid) {
-      showNotification();
+    if (!termsCheckbox.validity.valid) {
+      showRequiredAlert();
     }
   });
 };

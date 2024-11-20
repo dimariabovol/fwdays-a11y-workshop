@@ -8,7 +8,9 @@ const modal = () => {
 
   const removeAlert = () => {
     const alert = modal.querySelector('.alert');
-    alert?.remove();
+    if (alert) {
+      alert.remove();
+    }
   };
 
   const focusTrap = event => {
