@@ -13,11 +13,18 @@ const orderForm = () => {
     }
   };
 
-  const showRequiredAlert = () => {
+  const showAlert = () => {
     const alert = document.getElementById('alert');
     const clone = alert.content.cloneNode(true);
 
     formContent.prepend(clone);
+  };
+
+  const removeAlert = () => {
+    const alert = form.querySelector('.alert');
+    if (alert) {
+      alert.remove();
+    }
   };
 
   termsCheckbox.addEventListener('change', validateTermsCheckbox);
@@ -28,7 +35,10 @@ const orderForm = () => {
     validateTermsCheckbox();
 
     if (!termsCheckbox.validity.valid) {
-      showRequiredAlert();
+      showAlert();
+    } else {
+      removeAlert();
+      form.reset();
     }
   });
 };
