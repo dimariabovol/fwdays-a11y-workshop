@@ -1,31 +1,27 @@
 const modal = () => {
   let isOpen = false;
 
+  const pageContent = document.querySelector('.page-content');
   const modal = document.querySelector('.modal');
   const modalTrigger = document.querySelector('.modal-trigger');
   const modalCloseActions = modal.querySelectorAll('.modal-close');
-  const modalSubmit = modal.querySelector('.modal-submit');
+  const orderedProductsText = document.querySelector('.ordered-products');
+  const firstFocusableEl = modal.querySelector('.first-focusable');
+  const lastFocusableEl = modal.querySelector('.last-focusable');
 
-  const removeAlert = () => {
-    const alert = modal.querySelector('.alert');
-    if (alert) {
-      alert.remove();
-    }
-  };
-
-  const focusTrap = event => {
+  const handleKeyboardNav = event => {
     if (event.key === 'Escape') toggleModal();
     if (event.key !== 'Tab') return;
 
     if (event.shiftKey) {
-      if (document.activeElement === modalCloseActions[0]) {
+      if (document.activeElement === firstFocusableEl) {
         event.preventDefault();
-        modalSubmit.focus();
+        lastFocusableEl.focus();
       }
     } else {
-      if (document.activeElement === modalSubmit) {
+      if (document.activeElement === lastFocusableEl) {
         event.preventDefault();
-        modalCloseActions[0].focus();
+        firstFocusableEl.focus();
       }
     }
   };
@@ -35,17 +31,18 @@ const modal = () => {
 
     if (isOpen) {
       modal.classList.add('show');
-      modalCloseActions[0].focus();
+      orderedProductsText.focus();
+      pageContent.setAttribute('inert', '');
       document.body.style.overflow = 'hidden';
-      modal.addEventListener('keydown', focusTrap);
+      modal.addEventListener('keydown', handleKeyboardNav);
     }
 
     if (!isOpen) {
       modal.classList.remove('show');
+      pageContent.removeAttribute('inert');
       modalTrigger.focus();
       document.body.style.overflow = '';
-      modal.removeEventListener('keydown', focusTrap);
-      removeAlert();
+      modal.removeEventListener('keydown', handleKeyboardNav);
     }
   };
 

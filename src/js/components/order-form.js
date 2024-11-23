@@ -2,6 +2,7 @@ const orderForm = () => {
   const form = document.querySelector('.order-form');
   const formContent = document.querySelector('.order-form-content');
   const termsCheckbox = document.querySelector('.form-check-input');
+  const productsCount = document.querySelector('.products-count');
 
   const validateTermsCheckbox = () => {
     if (!termsCheckbox.validity.valid) {
@@ -13,11 +14,24 @@ const orderForm = () => {
     }
   };
 
-  const showRequiredAlert = () => {
+  const showAlert = () => {
     const alert = document.getElementById('alert');
     const clone = alert.content.cloneNode(true);
 
     formContent.prepend(clone);
+  };
+
+  const removeAlert = () => {
+    const alert = form.querySelector('.alert');
+    if (alert) {
+      alert.remove();
+    }
+  };
+
+  const setUpdateCartListener = () => {
+    document.addEventListener('update-cart', event => {
+      productsCount.textContent = event.detail.cartCount;
+    });
   };
 
   termsCheckbox.addEventListener('change', validateTermsCheckbox);
@@ -28,9 +42,14 @@ const orderForm = () => {
     validateTermsCheckbox();
 
     if (!termsCheckbox.validity.valid) {
-      showRequiredAlert();
+      showAlert();
+    } else {
+      removeAlert();
+      form.reset();
     }
   });
+
+  setUpdateCartListener();
 };
 
 export default orderForm;

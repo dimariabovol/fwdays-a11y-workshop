@@ -25,6 +25,12 @@ const products = async () => {
       </li>`;
   };
 
+  const emitUpdateCartEvent = (trigger, cartCount) => {
+    return trigger.dispatchEvent(
+      new CustomEvent('update-cart', { bubbles: true, detail: { cartCount } })
+    );
+  };
+
   const addToCart = () => {
     const cart = document.querySelector('.cart-index');
     const cartTriggers = document.querySelectorAll('.cart-trigger');
@@ -32,6 +38,7 @@ const products = async () => {
     cartTriggers.forEach(trigger =>
       trigger.addEventListener('click', () => {
         cart.textContent = ++cartCount;
+        emitUpdateCartEvent(trigger, cartCount);
       })
     );
   };
