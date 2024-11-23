@@ -1,9 +1,3 @@
-html {
-  @media (prefers-reduced-motion) {
-    scroll-behavior: auto;
-  }
-}
-
 ul {
   list-style-type: none;
   margin: 0;
