@@ -13,7 +13,11 @@
 .footer-copyright {
   margin-bottom: 0;
   margin-right: auto;
-  color: #ffffff;
+  color: #fff;
+}
+
+.footer-link {
+  color: #fff;
 }
 
 .footer-form {
