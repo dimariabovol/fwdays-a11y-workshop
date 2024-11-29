@@ -2,12 +2,11 @@ const accordion = () => {
   const accordionButtons = document.querySelectorAll('.accordion-button');
 
   const toggleAccordion = button => {
-    const isCollapsed = button.classList.toggle('collapsed');
-    const trigger = button.getAttribute('aria-controls');
+    const trigger = button.getAttribute('data-trigger');
     const panel = document.getElementById(trigger);
 
-    button.setAttribute('aria-expanded', !isCollapsed);
     panel.classList.toggle('collapse');
+    button.classList.toggle('collapsed');
   };
 
   accordionButtons.forEach(button =>

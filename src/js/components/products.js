@@ -11,17 +11,17 @@ const products = async () => {
   const renderProductItem = product => {
     return `
       <li>
-        <article class="card">
+        <div class="card">
           <img src="${product.image}" class="card-img product-img" alt="" />
           <div class="card-body">
-            <h3 class="card-title">${product.title.substring(0, 16)}...</h3>
+            <h4 class="card-title">${product.title.substring(0, 16)}...</h4>
             <p class="card-text">${product.description.substring(0, 90)}...</p>
             <p class="card-text">${product.price}$</p>
-            <button type="button" class="btn btn-primary cart-trigger">
-              Add to cart <span class="visually-hidden">${product.title}</span>
-            </button>
+            <div class="btn btn-primary cart-trigger">
+              Add to cart
+            </div>
           </div>
-        </article>
+        </div>
       </li>`;
   };
 
