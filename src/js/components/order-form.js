@@ -18,7 +18,9 @@ const orderForm = () => {
     const alert = document.getElementById('alert');
     const clone = alert.content.cloneNode(true);
 
-    formContent.prepend(clone);
+    if (!formContent.querySelector('.alert')) {
+      formContent.prepend(clone);
+    }
   };
 
   const removeAlert = () => {
