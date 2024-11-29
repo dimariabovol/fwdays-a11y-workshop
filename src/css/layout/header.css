@@ -16,10 +16,6 @@
 }
 
 .header-search {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-
   @media (max-width: 991px) {
     flex-basis: 100%;
   }
