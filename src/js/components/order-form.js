@@ -48,6 +48,7 @@ const orderForm = () => {
     } else {
       removeAlert();
       form.reset();
+      alert('Order submitted successfully!');
     }
   });
 
